@@ -1,0 +1,38 @@
+{
+    "veg": [
+        {
+            "name": "Tomatoes",
+            "price": 1
+        },
+        {
+            "name": "Onions ",
+            "price": 0.50
+        },
+        {
+            "name": "Bell pepper",
+            "price": 1.00
+        },
+        {
+            "name": "Mushrooms ",
+            "price": 1.20
+        },
+        {
+            "name": "Pineapple",
+            "price": 0.75
+        }
+    ],
+    "nonVeg": [
+        {
+            "name": "Sausage",
+            "price": 1.00
+        },
+        {
+            "name": "Pepperoni",
+            "price": 2.00
+        },
+        {
+            "name": "Barbecue chicken",
+            "price": 3.00
+        }
+    ]
+}

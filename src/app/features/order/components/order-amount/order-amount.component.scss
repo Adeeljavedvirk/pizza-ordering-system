@@ -1,0 +1,12 @@
+.total-common {
+    border: solid 1px #e4e4e4;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.total-amount-row {
+    display: flex;
+    .total {
+        @extend .total-common;
+        width: 220px;    
+    }
+}

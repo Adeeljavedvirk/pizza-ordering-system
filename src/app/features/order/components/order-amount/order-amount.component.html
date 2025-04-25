@@ -1,0 +1,44 @@
+<div class="total-amount-row">
+    <div class="total">
+        Total
+    </div>
+    <div class="total">
+        {{orderAmount.smallPizzaTotal | currency }}
+    </div>
+    <div class="total" [style.text-decoration]="orderAmount.mediumPizzaOfferPrice ? 'line-through' : 'unset'">
+        {{orderAmount.mediumPizzaTotal | currency}}
+    </div>
+    <div class="total" [style.text-decoration]="orderAmount.largePizzaOfferPrice ? 'line-through' : 'unset'">
+        {{orderAmount.largePizzaTotal | currency }}
+    </div>
+    <div class="total">
+        {{orderAmount.extraLargePizzaTotal | currency}}
+    </div>
+</div>
+@if (orderAmount.mediumPizzaOfferPrice || orderAmount.largePizzaOfferPrice) {
+<div class="total-amount-row">
+    <div class="total">
+        Offer
+    </div>
+    <div class="total">
+        &nbsp;
+    </div>
+    @if (orderAmount.mediumPizzaOfferPrice) {
+    <div class="total">
+        {{orderAmount.mediumPizzaOfferPrice | currency }}
+    </div>
+    } @else {
+    <div class="total"></div>
+    }
+    @if (orderAmount.largePizzaOfferPrice) {
+    <div class="total">
+        {{orderAmount.largePizzaOfferPrice | currency }}
+    </div>
+    }@else {
+    <div class="total"></div>
+    }
+    <div class="total">
+        &nbsp;
+    </div>
+</div>
+}

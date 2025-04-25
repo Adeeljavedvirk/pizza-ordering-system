@@ -1,0 +1,42 @@
+<div class="row">
+    <form [formGroup]="orderForm">
+        <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+            <div class="row w-100" style="border-bottom: 1px solid;">
+                <div class="col-md-4 text-center"><br>
+                    <h6>Toppings</h6>
+                </div>
+                <div class="col-md-4 text-center"><br>
+                    <h6>Pizza Size</h6>
+                </div>
+            </div>
+            <div class="wrapper">
+                <ul class="list">
+                    <label>Veg Toppings</label>
+                    @for (topping of vegToppings; track topping.name ) {
+                    <li>
+                        {{topping.name}} {{topping.price | currency}}
+                    </li>
+                    }
+                    <label>Non Veg Toppings</label>
+                    @for (topping of nonVegToppings; track topping.name) {
+                    <li>
+                        {{topping.name}} {{topping.price | currency}}
+                    </li>
+                    }
+                </ul>
+                @for (pizza of pizzaSizes(); track pizza.size) {
+                <ul class="list">
+                    <label>{{pizza.size}} ({{pizza.price | currency}})</label>
+                    <input type="number" formControlName="{{pizza.size}}PizzaQuantity" class="quantity"
+                        (change)="onQuantityChange(pizza.size, $event)" />
+                    <cpa-topping-list (toppingSelect)="onToppingSelect($event, $any(pizza.size))" [toppings]="vegToppings"></cpa-topping-list>
+                    <label>&nbsp;</label>
+                    <cpa-topping-list (toppingSelect)="onToppingSelect($event, $any(pizza.size))" [toppings]="nonVegToppings"></cpa-topping-list>
+                </ul>
+                }
+            </div>
+
+            <cpa-order-amount [orderAmount]="orderAmount()"></cpa-order-amount>
+        </div>
+    </form>
+</div>

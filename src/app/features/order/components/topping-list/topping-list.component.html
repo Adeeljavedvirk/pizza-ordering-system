@@ -1,0 +1,3 @@
+@for(topping of toppings; track topping.name) {
+    <cpa-topping [topping]="topping" (onSelect)="onToppingSelect($event)" />
+}
